@@ -12,11 +12,6 @@ class TodoView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var addedDuration = DateTime.now()
-        .difference(DateTime.fromMillisecondsSinceEpoch(todo.time));
-    var completedDuration = DateTime.now()
-        .difference(DateTime.fromMillisecondsSinceEpoch(todo.compTime));
-
     return Slidable(
         startActionPane: ActionPane(motion: const DrawerMotion(), children: [
           SlidableAction(
@@ -49,8 +44,8 @@ class TodoView extends StatelessWidget {
                             : TextDecoration.none)),
                 Text(
                     todo.completed
-                        ? "Completed ${fromDuration(completedDuration)}"
-                        : "Added ${fromDuration(addedDuration)}",
+                        ? "Completed ${formattedTime(todo.compTime)}"
+                        : "Added ${formattedTime(todo.time)}",
                     style: const TextStyle(
                         fontSize: 8,
                         fontStyle: FontStyle.italic,
