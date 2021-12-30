@@ -51,8 +51,7 @@ class TodoView extends StatelessWidget {
                         fontStyle: FontStyle.italic,
                         fontWeight: FontWeight.bold)),
               ],
-            ),
-          trailing: Text(todo.id.toString()),
+            )
         ));
   }
 
