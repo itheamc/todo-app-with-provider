@@ -25,6 +25,7 @@ class Todo {
       cmp = 0;
     }
     return {
+      '_id': id > 0 ? id : null,
       '_title': title,
       '_desc': desc,
       '_completed': cmp,

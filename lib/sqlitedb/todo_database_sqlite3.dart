@@ -29,7 +29,7 @@ class TodoDatabaseSqlite3 {
   // Function to get completed todos
   Future<List<Todo>> todos({bool? completed}) async {
     var result = _database?.select(
-        'SELECT * FROM $_tableName${completed == null ? "" : " WHERE _completed = ${completed == true ? 1 : 0}"}');
+        'SELECT * FROM $_tableName${completed == null ? "" : " WHERE _completed = ${completed == true ? 1 : 0}"} ORDER BY _id DESC');
     if (result != null && result.isNotEmpty) {
       final rows = result.rows;
       if (rows.isNotEmpty) {

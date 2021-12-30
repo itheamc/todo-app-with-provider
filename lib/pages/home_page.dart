@@ -22,7 +22,7 @@ class HomePage extends StatelessWidget {
               itemBuilder: (BuildContext context, int index) {
                 return TodoView(
                     todo: snapshot
-                        .requireData[snapshot.requireData.length - index - 1]);
+                        .requireData[index]);
               },
             );
           } else {

@@ -40,9 +40,8 @@ class TodoDatabaseSqflite {
           '_comp_time'
         ],
         where: completed == null ? null : "_completed = ?",
-        whereArgs: completed == null
-            ? null
-            : [completed ? 1 : 0]); // 0 -> false, 1 -> true
+        whereArgs: completed == null ? null : [completed ? 1 : 0],
+        orderBy: '_id DESC'); // 0 -> false, 1 -> true
 
     return maps != null && maps.isNotEmpty ? Todo.fromMaps(maps) : List.empty();
   }

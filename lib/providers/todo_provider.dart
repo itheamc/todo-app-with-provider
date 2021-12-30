@@ -4,6 +4,7 @@ import 'package:todo_app_with_provider/sqlitedb/todo_database.dart';
 
 class TodoProvider with ChangeNotifier {
   TodoDatabase? _todoDatabase;
+  Todo? _temp;
 
   Future<List<Todo>> todos() async {
     _todoDatabase ??= await TodoDatabase.initialize();
@@ -24,7 +25,14 @@ class TodoProvider with ChangeNotifier {
 
   Future<void> delete(Todo todo) async {
     _todoDatabase ??= await TodoDatabase.initialize();
+    _temp = todo.copy();
     await _todoDatabase?.delete(todo);
     notifyListeners();
+  }
+
+  Future<void> handleUndo() async {
+    if (_temp != null) {
+      await insert(_temp!);
+    }
   }
 }

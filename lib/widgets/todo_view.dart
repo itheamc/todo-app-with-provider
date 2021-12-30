@@ -51,16 +51,20 @@ class TodoView extends StatelessWidget {
                         fontStyle: FontStyle.italic,
                         fontWeight: FontWeight.bold)),
               ],
-            )));
+            ),
+          trailing: Text(todo.id.toString()),
+        ));
   }
 
   // Function to delete the _todo
   Future<void> _delete(BuildContext context) async {
     await context.read<TodoProvider>().delete(todo);
     ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(
-          content: Text('Deleted Successfully'),
-          duration: Duration(seconds: 2)),
+      SnackBar(
+          content: const Text('Deleted Successfully'),
+          duration: const Duration(seconds: 2),
+        action: SnackBarAction(label: "Undo", onPressed: context.read<TodoProvider>().handleUndo),
+      )
     );
   }
 
@@ -79,7 +83,7 @@ class TodoView extends StatelessWidget {
     }
 
     ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text(message), duration: const Duration(seconds: 2)),
+      SnackBar(content: Text(message), duration: const Duration(seconds: 2))
     );
   }
 }
