@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:todo_app_with_provider/pages/HomePage.dart';
-import 'package:todo_app_with_provider/pages/NewTodoPage.dart';
-import 'package:todo_app_with_provider/providers/TodoProviders.dart';
+import 'package:todo_app_with_provider/pages/home_page.dart';
+import 'package:todo_app_with_provider/pages/new_todo_page.dart';
+import 'package:todo_app_with_provider/providers/todo_provider.dart';
 
 
 void main() {

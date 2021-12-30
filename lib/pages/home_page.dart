@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:todo_app_with_provider/providers/TodoProviders.dart';
+import 'package:todo_app_with_provider/providers/todo_provider.dart';
 import 'package:todo_app_with_provider/sqlitedb/todo.dart';
-import 'package:todo_app_with_provider/widgets/TodoView.dart';
+import 'package:todo_app_with_provider/widgets/todo_view.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);

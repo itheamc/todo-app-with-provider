@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'package:todo_app_with_provider/providers/TodoProviders.dart';
+import 'package:todo_app_with_provider/providers/todo_provider.dart';
 import 'package:todo_app_with_provider/sqlitedb/todo.dart';
 
 class NewTodoPage extends StatelessWidget {
