@@ -7,24 +7,24 @@ class TodoProvider with ChangeNotifier {
   Todo? _temp;
 
   Future<List<Todo>> todos() async {
-    _todoDatabase ??= await TodoDatabase.initialize();
+    _todoDatabase ??= await init();
     return await _todoDatabase?.todos() ?? List.empty();
   }
 
   Future<void> insert(Todo todo) async {
-    _todoDatabase ??= await TodoDatabase.initialize();
+    _todoDatabase ??= await init();
     await _todoDatabase?.insert(todo);
     notifyListeners();
   }
 
   Future<void> update(Todo todo) async {
-    _todoDatabase ??= await TodoDatabase.initialize();
+    _todoDatabase ??= await init();
     await _todoDatabase?.update(todo);
     notifyListeners();
   }
 
   Future<void> delete(Todo todo) async {
-    _todoDatabase ??= await TodoDatabase.initialize();
+    _todoDatabase ??= await init();
     _temp = todo.copy();
     await _todoDatabase?.delete(todo);
     notifyListeners();
@@ -34,5 +34,9 @@ class TodoProvider with ChangeNotifier {
     if (_temp != null) {
       await insert(_temp!);
     }
+  }
+
+  Future<TodoDatabase> init() async {
+    return await TodoDatabase.initialize();
   }
 }
